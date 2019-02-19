@@ -143,6 +143,8 @@ public class MaeStrings {
     public final static String MENUITEM_SAVE_DIR = "Set save location";
     public final static String MENUITEM_RETURN_TO_NORMAL_MODE = "Return to the normal mode after an action";
     public final static String MENUITEM_DONT_WARN_TXT2XML = "Suppress \"New XML created\" popup";
+    public final static String MENU_EDIT = "Edit";
+    public final static String MENUITEM_SEARCH = "Search";
 
     public final static String MENU_HELP = "Help";
     public final static String MENUITEM_ABOUT = "About";

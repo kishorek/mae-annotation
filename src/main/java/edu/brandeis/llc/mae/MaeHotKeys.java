@@ -323,6 +323,11 @@ public class MaeHotKeys {
             Toolkit.getDefaultToolkit().getMenuShortcutKeyMask());
     public final static KeyStroke ksZOOMIN = ksCEquals;
 
+    public final static KeyStroke ksCF
+            = KeyStroke.getKeyStroke(KeyEvent.VK_F,
+            Toolkit.getDefaultToolkit().getMenuShortcutKeyMask());
+    public final static KeyStroke ksSEARCH = ksCF;
+
     public final static KeyStroke ksRESETZOOM = ksC0;
 
     // TODO: 2016-01-10 16:36:05EST for side panel support

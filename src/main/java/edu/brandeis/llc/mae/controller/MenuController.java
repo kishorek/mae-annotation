@@ -63,16 +63,18 @@ class MenuController extends MaeControllerI {
     private static final int COPY_MENU = 2;
 
     private static final int MENU_FILE_POSITION = 0;
-    private static final int MENU_TAGS_POSITOIN = 1;
-    private static final int MENU_MODE_POSITION = 2;
-    private static final int MENU_DISPLAY_POSITION = 3;
-    private static final int MENU_PREFS_POSITION = 4;
-    private static final int MENU_HELP_POSITION = 5;
+    private static final int MENU_EDIT_POSITION = 1;
+    private static final int MENU_TAGS_POSITOIN = 2;
+    private static final int MENU_MODE_POSITION = 3;
+    private static final int MENU_DISPLAY_POSITION = 4;
+    private static final int MENU_PREFS_POSITION = 5;
+    private static final int MENU_HELP_POSITION = 6;
 
     private static final Map<String , Integer> menuOrder;
     static {
         menuOrder = new HashMap<>();
         menuOrder.put(MaeStrings.MENU_FILE, MENU_FILE_POSITION);
+        menuOrder.put(MaeStrings.MENU_EDIT, MENU_EDIT_POSITION);
         menuOrder.put(MaeStrings.MENU_TAGS, MENU_TAGS_POSITOIN);
         menuOrder.put(MaeStrings.MENU_MODE, MENU_MODE_POSITION);
         menuOrder.put(MaeStrings.MENU_DISPLAY, MENU_DISPLAY_POSITION);
@@ -147,6 +149,8 @@ class MenuController extends MaeControllerI {
         switch (menuIndex) {
             case MENU_FILE_POSITION:
                 return prepareFileMenu();
+            case MENU_EDIT_POSITION:
+                return prepareEditMenu();
             case MENU_MODE_POSITION:
                 menu = prepareModeMenu();
                 menu.setEnabled(getMainController().isTaskLoaded());
@@ -287,6 +291,19 @@ class MenuController extends MaeControllerI {
         menu.add(about);
         menu.add(visitWebsite);
         logger.debug("help menu is created: " + menu.getItemCount());
+        return menu;
+    }
+
+    private JMenu prepareEditMenu(){
+        MaeActionI increaseFontSizeAction = new ChangeFontSize(MENUITEM_SEARCH, null, ksSEARCH, null, getMainController());
+        JMenu menu = new JMenu(MENU_EDIT);
+        menu.setMnemonic(MENU_EDIT.charAt(0));
+
+        JMenuItem increaseFontSize = new JMenuItem(increaseFontSizeAction);
+        increaseFontSize.setActionCommand("+");
+
+        menu.add(increaseFontSize);
+
         return menu;
     }
 
